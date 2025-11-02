@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  chrome-desktop:
+    build: .
+    container_name: chrome-desktop
+    ports:
+      - "6080:80" # noVNC web access
+      - "5900:5900" # VNC client access (optional)
+      - "3000:3000" # Express server access
+    environment:
+      - ENABLE_CLIPBOARD=true
+      - KEYBOARD_LAYOUT=us,il
+    volumes:
+      - chrome_state:/root # saves Chrome config, downloads, etc.
+    restart: unless-stopped
+
+volumes:
+  chrome_state:

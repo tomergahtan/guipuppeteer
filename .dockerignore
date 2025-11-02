@@ -1,0 +1,41 @@
+# Node dependencies (inside your folder)
+myfolder/node_modules
+myfolder/npm-debug.log
+myfolder/yarn-error.log
+myfolder/package-lock.json
+
+# Puppeteer & Chrome cache
+myfolder/.cache
+myfolder/puppeteer-cache
+myfolder/Chromium
+myfolder/pnpm-lock.yaml
+
+# Logs & temp files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.old
+*.orig
+
+# IDE / editor configs
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Git files
+.git
+.gitignore
+
+# Docker build files
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Other temporary archives
+*.zip
+*.tar.gz
+*.tgz
+*.7z
