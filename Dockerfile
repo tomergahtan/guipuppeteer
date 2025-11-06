@@ -55,8 +55,10 @@ COPY myfolder /root/Desktop/myfolder
 WORKDIR /root/Desktop/myfolder
 RUN npm install
 # Ensure Puppeteer installs Chrome into the right cache path
-RUN mkdir -p /root/.cache/puppeteer && \
-    PUPPETEER_CACHE_DIR=/root/.cache/puppeteer npx puppeteer browsers install chrome
+# RUN mkdir -p /root/.cache/puppeteer && \
+#     PUPPETEER_CACHE_DIR=/root/.cache/puppeteer npx puppeteer browsers install chrome
+RUN npx puppeteer browsers install chrome
+
 # --- Create desktop shortcut to run Puppeteer ---
 RUN mkdir -p /root/Desktop && \
 echo "[Desktop Entry]\n\

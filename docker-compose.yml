@@ -1,19 +1,19 @@
-version: "3.8"
-
+version: "3.9"
 services:
-  chrome-desktop:
-    build: .
-    container_name: chrome-desktop
+  puppeteer:
+    image: puppeteer-desktop
+    container_name: puppeteer-gui
     ports:
-      - "6080:80" # noVNC web access
-      - "5900:5900" # VNC client access (optional)
-      - "3000:3000" # Express server access
+      - "6080:80" # Web VNC
+      - "5900:5900" # Optional native VNC
+      - "24000:24000" # Express server
     environment:
       - ENABLE_CLIPBOARD=true
       - KEYBOARD_LAYOUT=us,il
+      - DISPLAY_WIDTH=0
+      - DISPLAY_HEIGHT=0
+      - ENABLE_AUTOSCALE=true
+    # keep the internal volume defined in Dockerfile
+    command: bash -c "cd /root/Desktop/myfolder && npx puppeteer browsers install chrome && /startup.sh"
     volumes:
-      - chrome_state:/root # saves Chrome config, downloads, etc.
-    restart: unless-stopped
-
-volumes:
-  chrome_state:
+      - /root
